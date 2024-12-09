@@ -6,15 +6,25 @@ import { FaFacebook, FaInstagram, FaTwitter } from 'react-icons/fa';
 export default function SocialFeeds() {
   useEffect(() => {
     // Reload social plugins after component mounts
-    if (window.FB) {
-      window.FB.XFBML.parse();
-    }
-    if (window.twttr) {
-      window.twttr.widgets.load();
-    }
-    if (window.instgrm) {
-      window.instgrm.Embeds.process();
-    }
+    const loadSocialPlugins = () => {
+      // Facebook
+      if (typeof window !== 'undefined' && window.FB) {
+        window.FB.XFBML.parse();
+      }
+
+      // Twitter
+      if (typeof window !== 'undefined' && window.twttr) {
+        window.twttr.widgets.load();
+      }
+
+      // Instagram
+      if (typeof window !== 'undefined' && window.instgrm) {
+        window.instgrm.Embeds.process();
+      }
+    };
+
+    // Load plugins with a slight delay to ensure SDKs are loaded
+    setTimeout(loadSocialPlugins, 1000);
   }, []);
 
   return (
