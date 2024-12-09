@@ -2,12 +2,20 @@ import { NextResponse } from 'next/server';
 import sgMail from '@sendgrid/mail';
 
 if (!process.env.SENDGRID_API_KEY) {
-  throw new Error('SENDGRID_API_KEY environment variable is not set');
+  console.warn('SENDGRID_API_KEY is not set. Email functionality will be disabled.');
 }
-sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+
+sgMail.setApiKey(process.env.SENDGRID_API_KEY || '');
 
 export async function POST(request: Request) {
   try {
+    if (!process.env.SENDGRID_API_KEY) {
+      return NextResponse.json(
+        { error: 'Email service is not configured' },
+        { status: 503 }
+      );
+    }
+
     const data = await request.json();
     
     // Email to business
