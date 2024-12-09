@@ -53,7 +53,7 @@ export default function Navbar() {
           ))}
         </div>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <Link href="/contact" className="btn-primary">
+          <Link href="/order" className="btn-primary">
             Make an Order
           </Link>
         </div>
@@ -98,7 +98,7 @@ export default function Navbar() {
               </div>
               <div className="py-6">
                 <Link
-                  href="/contact"
+                  href="/order"
                   className="btn-primary block text-center"
                   onClick={() => setMobileMenuOpen(false)}
                 >

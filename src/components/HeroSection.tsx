@@ -24,9 +24,14 @@ export default function HeroSection() {
           <p className="text-xl md:text-2xl mb-8 max-w-2xl mx-auto">
             Experience premium menswear and expert tailoring services for the modern gentleman
           </p>
-          <Link href="/contact" className="btn-primary">
-            Make an Order
-          </Link>
+          <div className="mt-10 flex items-center justify-center gap-x-6">
+            <Link
+              href="/order"
+              className="btn-primary"
+            >
+              Make an Order
+            </Link>
+          </div>
         </div>
       </div>
     </section>
