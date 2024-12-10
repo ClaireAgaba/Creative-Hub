@@ -8,7 +8,7 @@ import Script from 'next/script'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Elite Mens Wear - Premium Suits & Tailoring',
+  title: 'The Creative Hub - Premium Suits & Tailoring',
   description: 'Your destination for premium mens wear, custom tailoring, and elegant suits.',
 }
 
